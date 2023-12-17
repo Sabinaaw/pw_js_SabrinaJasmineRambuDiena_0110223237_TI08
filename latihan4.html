@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan Dua Bilangan</title>
+</head>
+<body>
+
+    <label for="bilangan1">Bilangan 1:</label>
+    <input type="text" id="bilangan1" onChange="hitungJumlah()">
+    <br>
+    <br>
+    <label for="bilangan2">Bilangan 2:</label>
+    <input type="text" id="bilangan2" onChange="hitungJumlah()">
+    <br>
+    <br>
+    <label for="hasil">Hasil:</label>
+    <input type="text" id="hasil" readonly>
+
+    <script>
+        function hitungJumlah() {
+            // Ambil nilai dari inputan
+            var bilangan1 = parseFloat(document.getElementById('bilangan1').value) || 0;
+            var bilangan2 = parseFloat(document.getElementById('bilangan2').value) || 0;
+
+            // Hitung jumlahnya
+            var hasil = bilangan1 + bilangan2;
+
+            // Tampilkan hasil pada input hasil
+            document.getElementById('hasil').value = hasil;
+        }
+    </script>
+
+</body>
+</html>
