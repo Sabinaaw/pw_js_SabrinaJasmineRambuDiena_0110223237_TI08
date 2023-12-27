@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kurs Rupiah</title>
+  <style>
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+  <script src="konversi.js" defer></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Kurs Rupiah - Mata Uang Asing</legend>
+        <table border="1">
+            <tr>
+                <th>Masukkan Nilai</th>
+                <th>Valas</th>
+                <th>Nilai Rupiah</th>
+            </tr>
+            <tr>
+                <td><input type="number" id="amount" placeholder="Masukkan nilai mata uang" oninput="convertCurrency()"></td>
+                <td><select id="foreignCurrency" onchange="convertCurrency()">
+                    <option value="usd">Dollar US</option>
+                    <option value="sgd">Dollar Singapore</option>
+                    <option value="myr">Ringgit Malaysia</option>
+                    <option value="jpy">Yen Jepang</option>
+                    <option value="eur">Euro</option>
+                    <option value="sar">Riyal Arab Saudi</option>
+                </select></td>
+                <td><span id="rupiahValue">0</span></td>
+            </tr>
+        </table>
+    </fieldset>
+  <script>
+    function convertCurrency() {
+      // elemen dropdown
+      var currencyDropdown = document.getElementById("foreignCurrency");
+      // nilai yang dipilih dari dropdown
+      var selectedCurrency = currencyDropdown.value;
+
+      // nilai yang dimasukkan pengguna
+      var amountInput = document.getElementById("amount").value;
+
+      // nilai tukar mata uang
+      var exchangeRates = {
+        usd: 9915,
+        sgd: 13472,
+        myr: 874,
+        jpy: 120,
+        eur: 15888,
+        sar: 3592
+      };
+      var rupiahValue = amountInput * exchangeRates[selectedCurrency];
+
+      // hasil konversi
+      document.getElementById("rupiahValue").innerText = rupiahValue.toLocaleString();
+    }
+  </script>
+
+</body>
+</html>

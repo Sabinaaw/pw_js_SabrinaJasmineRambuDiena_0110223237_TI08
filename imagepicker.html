@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #image-container {
+      margin-top: 20px;
+    }
+
+    #image-alert {
+      margin-top: 10px;
+    }
+  </style>
+  <title>Image Picker</title>
+</head>
+<body>
+
+  <label for="image-dropdown">Pilih Gambar:</label>
+  <select id="image-dropdown" onchange="displayImage()">
+    <option value="Ayam.jpeg">Ayam</option>
+    <option value="bebek.jpeg">Bebek</option>
+    <option value="fox.jpeg">Rubah</option>
+    <option value="Jerapah.jpeg">Jerapah</option>
+    <option value="kelinci.jpeg">Kelinci</option>
+    <!-- Tambahkan lebih banyak gambar sesuai kebutuhan -->
+  </select>
+
+  <div id="image-container">
+    <img id="selected-image" src="" alt="Selected Image">
+  </div>
+
+  <div id="image-alert">
+    <p id="image-name-info" onclick="showAlert()"></p>
+  </div>
+
+  <script>
+    function displayImage() {
+      // Ambil elemen dropdown
+      var dropdown = document.getElementById("image-dropdown");
+      // Ambil nilai yang dipilih dari dropdown
+      var selectedImage = dropdown.options[dropdown.selectedIndex].value;
+      // Ambil elemen gambar yang akan ditampilkan
+      var imageElement = document.getElementById("selected-image");
+      // Atur sumber gambar sesuai dengan nilai yang dipilih dari dropdown
+      imageElement.src = selectedImage;
+
+      // Tampilkan kotak alert dengan nama file gambar
+      var imageNameInfo = document.getElementById("image-name-info");
+       alert( "Ini gambar : " + selectedImage);
+    }
+    // function showAlert() {
+    //   alert("Hewan ini adalah " + selectedImage);
+    // }
+  </script>
+
+</body>
+</html>
